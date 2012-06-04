@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<!--
+ *
+ * AeroWindow - jQuery Plugin (v3.5)
+ * Copyright 2010, Christian Goldbach
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * 
+ * Project Website:
+ * http://www.soyos.net/aerowindow-jquery.html
+ * http://www.soyos.net
+ *
+ *
+ *
+ * Requires Easing Plugin for Window Animations:
+ * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
+ *
+ * Date: 2010-06-09
+ *
+//-->
+
+  <head>
+    <title>ÈôÊ«ÅúÁ¿ÏÂÔØÕ¾---DEMO: AeroWindow - jQuery Plugin (v3.5)</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css"/>    
+    <link href="css/AeroWindow.css?r=123" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/jquery-1.6.js"></script> 
+    <script type="text/javascript" src="js/jquery-ui-1.8.1.custom.min.js"></script> 
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>         
+    <script type="text/javascript" src="js/jquery-AeroWindow.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#Window1').AeroWindow({
+          WindowTitle:          'Window 1 - Happy OutBounce',
+          WindowPositionTop:    100,
+          WindowPositionLeft:   200,
+          WindowWidth:          300,
+          WindowHeight:         200,
+          WindowAnimation:      'easeOutBounce',   
+		  WindowUrl:'http://www.baidu.com',
+		  close:function(){
+		  }
+        });  
+      });
+	  
+	  function cc(){
+		$('#Window1').AeroWindow({
+          WindowTitle:          'Window 1 - Happy OutBounce',
+          WindowPositionTop:    100,
+          WindowPositionLeft:   200,
+          WindowWidth:          300,
+          WindowHeight:         200,
+          WindowAnimation:      'easeOutBounce',   
+		  WindowUrl:'http://www.baidu.com',
+		  close:function(){
+		  }
+        });
+	  }
+    </script>
+    <style>
+      body {
+        background: #09368b url(win7-desktop-bg.jpg);
+      }
+      #iconContainer {
+        position: absolute;
+        top:      10px;
+        left:     5px;
+        width:    auto;
+        height:   auto;
+      }
+      #iconContainer div {
+        width:    70px;
+        height:   70px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Demo Aero Window  1 -->
+    <div id="Window1"></div>
+
+	
+	<input type="button" onclick="cc()"/>
+  </body>  
+</html>

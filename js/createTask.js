@@ -1,0 +1,1 @@
+/*Author by luofei;CreateTask on desktopI want to write a plug aimed practice my ability*//*function createTask () {	}*/;(function($){	$.fn.createTask (options) {		var Default = {			id:null;			name:null			top:20;			left:280;			url:null;			image:null;		}		$.extend(Default, options);			}})(jQuery);

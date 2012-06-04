@@ -1,0 +1,6 @@
+<div id="creatTask_windows">
+			任&nbsp;&nbsp;务&nbsp;&nbsp;ID:<input type="text" size="4" id="ID"><br>
+			任务名称:<input type="text" size="10" id="ID"><br>
+			图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标:<input type="file"><br>
+			Left:<input type="text" size="4" id="ID">&nbsp;&nbsp;Top:<input type="text" size="4" id="ID"><br>
+			<input type="submit" value="确认" name="creatTask"><div id="go_center"></div><input type="reset" value="取消" name="giveUp">

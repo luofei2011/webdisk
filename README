@@ -1,0 +1,8 @@
+
+文件：
+desktop.js --桌面
+taskbar.js --任务栏
+init.js --调试，初始化js
+util.js --工具 json与Object对象互转
+windows.js --窗体JS
+
