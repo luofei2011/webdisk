@@ -1,0 +1,5 @@
+使用此插件：
+require "url.php";
+调用函数:SendEmail($to,$content);
+$to:邮件发送目标
+$content:邮件正文

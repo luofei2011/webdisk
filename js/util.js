@@ -1,12 +1,12 @@
 
 /**
-*APIĞÂÔö
+*APIæ–°å¢
 */
 ptui.util=new function(){
-	this.toJSON = function(v){  //×ª»»³ÉJSON
+	this.toJSON = function(v){  //è½¬æ¢æˆJSON
 		var json = [];      
-			for(var i in v){      //±éÀúÊı×éV  
-				if(!v.hasOwnProperty/*¼ì²â¸Ã¶ÔÏóÊÇ·ñÓĞ¸ø¶¨Ãû³ÆµÄÊôĞÔ»ò¶ÔÏó£¬¸ÃÊôĞÔ±ØĞëÊÇ¶ÔÏó±¾ÉíµÄÒ»¸ö³ÉÔ±*/(i)) continue;  
+			for(var i in v){      //éå†æ•°ç»„V  
+				if(!v.hasOwnProperty/*æ£€æµ‹è¯¥å¯¹è±¡æ˜¯å¦æœ‰ç»™å®šåç§°çš„å±æ€§æˆ–å¯¹è±¡ï¼Œè¯¥å±æ€§å¿…é¡»æ˜¯å¯¹è±¡æœ¬èº«çš„ä¸€ä¸ªæˆå‘˜*/(i)) continue;  
 				 if(typeof v[i]=='string'){
 					v[i]=v[i].replace(/\\/g,'\\\\');
 					var tmp=(i+":\'"+v[i]+"\'");
@@ -20,11 +20,11 @@ ptui.util=new function(){
 	} 
 	this.toObject = function(v){    
 		if(typeof v=='string'){
-			return (eval("["+v+"]")[0]);//eval¼ÆËã×Ö·û´®²¢¼ÆËãÆäÖĞµÄjavascript´úÂë
+			return (eval("["+v+"]")[0]);//evalè®¡ç®—å­—ç¬¦ä¸²å¹¶è®¡ç®—å…¶ä¸­çš„javascriptä»£ç 
 		}     
 	} 
 	/**
-	*¼¤»î´°Ìå
+	*æ¿€æ´»çª—ä½“
 	*/
 	this.focusWindows=function(Window) {
 			  $(".AeroWindow").removeClass('active');

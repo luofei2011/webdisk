@@ -12,7 +12,12 @@ function deleteTask() {
 	//var l = $(".link").size();
 	var Did = $("input[name='Dname']").val();
 	//alert(Did);
-	$("#"+Did).css("display","none");
+	//$("#"+Did).css("display","none");
+	var child = document.getElementById(Did);
+	var parentElement = child.parentNode;
+	if(parentElement){
+		parentElement.removeChild(child);
+	}
 }
 
 function DgiveUp() {
@@ -33,13 +38,15 @@ function displayDesktop() {
 
 
 function change_bg() {
-	//$('body').style.background = "url('images/bak1.jpg')";
 	var bg = ['bak0.jpg','bak1.jpg','bak2.jpg','bak3.jpg','bak4.jpg','bak5.jpg','bak6.jpg'];
 	var count = Math.floor(Math.random()*7);
 	var bak = "images/" + bg[count];
-	//alert(bak);
 	document.body.style.backgroundImage="url("+bak+")";
 }
+
+$(document).ready(function () {
+	//setInterval("change_bg()", 10000);
+});
 
 function manageTask() {
 
@@ -66,7 +73,7 @@ function submit() {
 	}
 	if(ID>id){
 		var links = 'link'+id;
-		var links=new Link({id:ID,name:'task_name',icon:'',left:task_left,top:task_top,url:'http://www.baidu.com'});
+		var links=new Link({id:ID,name:'task_name',icon:'images/icon/8.png',left:task_left,top:task_top,url:'http://www.baidu.com'});
 		ptui.desktop.addLinks(new Array(links));
 		id_array.push(ID);
 		//alert(id_array[i]);
@@ -74,10 +81,33 @@ function submit() {
 	else{
 		ID = id +1;
 		var links = 'link'+id;
-		var links=new Link({id:ID,name:'task_name',icon:'',left:task_left,top:task_top,url:'http://www.baidu.com'});
+		var links=new Link({id:ID,name:'task_name',icon:'images/icon/8.png',left:task_left,top:task_top,url:'http://www.baidu.com'});
 		ptui.desktop.addLinks(new Array(links));
 	}
 	//alert(id_array);
 	id++;
 	//alert(id_array);
+}
+
+
+//可拖动的DIV
+var currentMoveObj = null;
+var relLeft;
+var relTop;
+function f_mdown(obj){
+	currentMoveObj = obj;
+	currentMoveObj.style.position = "absolute";
+	relLeft = event.x - currentMoveObj.style.pixelLeft;//返回的是定位元素左边界偏移量的像素值，是整数。
+	relTop = event.y - currentMoveObj.style.pixelTop;
+}
+
+window.document.onmouseup = function() {
+	currentMoveObj = null;
+}
+
+function f_move(obj){
+	if(currentMoveObj != null){
+		currentMoveObj.style.pixelLeft = event.x - relLeft;
+		currentMoveObj.style.pixelTop = event.y - relTop;
+	}
 }

@@ -1,0 +1,59 @@
+<script type="text/javascript">
+var $ = function(selector) {
+	return document.getElementById(selector);
+};
+
+var handleFiles = function(files) {
+	var preview = $("preview");
+	console.log(preview);
+	for (var i = 0; i < files.length; i++) {
+		var file = files[i];
+		if (!file.type.match(/image*/)) {
+			continue;
+		}
+		
+		var img = document.createElement("img");
+		img.classList.add("obj");
+		img.file = file;
+		preview.appendChild(img);
+		
+		var reader = new FileReader();
+		reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+		reader.readAsDataURL(file);
+	}
+}
+window.onload = function() {
+	dropbox = $("dropbox");
+	document.addEventListener("dragenter", function(e){
+		dropbox.style.borderColor = 'gray';
+	}, false);
+	document.addEventListener("dragleave", function(e){
+		dropbox.style.borderColor = 'silver';
+	}, false);
+	dropbox.addEventListener("dragenter", function(e){
+		dropbox.style.borderColor = 'gray';
+		dropbox.style.backgroundColor = 'white';
+	}, false);
+	dropbox.addEventListener("dragleave", function(e){
+		dropbox.style.backgroundColor = 'transparent';
+	}, false);
+	dropbox.addEventListener("dragenter", function(e){
+		e.stopPropagation();
+		e.preventDefault();
+	}, false);
+	dropbox.addEventListener("dragover", function(e){
+		e.stopPropagation();
+		e.preventDefault();
+	}, false);
+	dropbox.addEventListener("drop", function(e){
+		e.stopPropagation();
+		e.preventDefault();
+		
+		handleFiles(e.dataTransfer.files);
+		
+		//submit.disabled = false;
+	}, false);
+};
+</script>
+<div name="image" id="dropbox" style="min-width:300px;min-height:100px;border:3px dashed silver;"></div>  
+<div id="preview"></div>

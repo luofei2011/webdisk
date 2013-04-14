@@ -1,0 +1,15 @@
+<?
+/*
+ 配置文件 
+author:luofei
+email:luofeihit2010@gmail.com
+Department:HIT
+ */
+$db_host="localhost";
+$db_user="root";
+$db_pass="101365";
+$db_name="spider";
+$table_url="url";
+$link=mysql_connect($db_host,$db_user,$db_pass);
+mysql_select_db($db_name,$link);
+?>

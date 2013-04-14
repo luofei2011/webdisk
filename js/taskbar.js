@@ -5,36 +5,36 @@ ptui=new function(){
 	
 }
 /**
-*ÈÎÎñ
+*ä»»åŠ¡
 */
 ptui.taskBar=new function(){
-	//ÈÎÎñ¼¯ºÏ
+	//ä»»åŠ¡é›†åˆ
 	this.tasks=new Array();
-	//Ìí¼ÓÈÎÎñ
+	//æ·»åŠ ä»»åŠ¡
 	this.addTask=function(task){
 		for(var i=0;i<this.tasks.length;i++){
 			if(this.tasks[i].id==task.id){
-				throw new Error("ÈÎÎñÒÑ´æÔÚ£¡");
+				throw new Error("ä»»åŠ¡å·²å­˜åœ¨ï¼");
 			}
 		}
 		this.tasks[this.tasks.length]=task;
 		$("#"+ptuisetting['taskBar']).html(ptui.taskBar.getTasksHtml());
 	}
-	//É¾³ıÈÎÎñ
+	//åˆ é™¤ä»»åŠ¡
 	this.deleteTask=function(taskid){
-		//±éÀúÈÎÎñ¼¯ºÏ
+		//éå†ä»»åŠ¡é›†åˆ
 		for(var i=0;i<this.tasks.length;i++){
-			//ÕÒµ½¸ÃÈÎÎñËùÔÚ¼¯ºÏÎ»ÖÃ
+			//æ‰¾åˆ°è¯¥ä»»åŠ¡æ‰€åœ¨é›†åˆä½ç½®
 			if(this.tasks[i].id==taskid){
-				//Êı×éÖØÁĞ
+				//æ•°ç»„é‡åˆ—
 				for(var x=i;x<this.tasks.length;x++){
 					this.tasks[x]=this.tasks[x+1];
 				}
-				//Êı×é³¤¶È-1
+				//æ•°ç»„é•¿åº¦-1
 				this.tasks.length-=1;
-				//Ë¢ĞÂÈÎÎñÀ¸
+				//åˆ·æ–°ä»»åŠ¡æ 
 				$("#"+ptuisetting['taskBar']).html(ptui.taskBar.getTasksHtml());
-				//ÖÕÖ¹Ö´ĞĞ·µ»ØÈÎÎñÊı×é³¤¶È
+				//ç»ˆæ­¢æ‰§è¡Œè¿”å›ä»»åŠ¡æ•°ç»„é•¿åº¦
 				return this.tasks.length;
 			}
 		}
@@ -58,18 +58,18 @@ ptui.taskBar=new function(){
 	}
 	
 	this.taskClick=function(j){
-		//ÏÔÊ¾´°Ìå
-		var vis=$('#window_'+j.id).css('display');  //µ±Ç°´°¿ÚµÄ×´Ì¬
-		var window=$($('#window_'+j.id).children()[0]); //´°¿ÚÖ÷Ìå
+		//æ˜¾ç¤ºçª—ä½“
+		var vis=$('#window_'+j.id).css('display');  //å½“å‰çª—å£çš„çŠ¶æ€
+		var window=$($('#window_'+j.id).children()[0]); //çª—å£ä¸»ä½“
 		if(vis=='none'){
 			$('#window_'+j.id).show();
 			ptui.util.focusWindows(window);
 		}else{
 			if(window.hasClass('active')){
-				// ´¦ÓÚÏÔÊ¾ÇÒ¼¤»î×´Ì¬Òş²Ø´°Ìå
+				// å¤„äºæ˜¾ç¤ºä¸”æ¿€æ´»çŠ¶æ€éšè—çª—ä½“
 				$('#window_'+j.id).hide();
 			}else{
-				//´¦ÓÚÏÔÊ¾×´Ì¬µ«Ã»¼¤»î ¼¤»î´°Ìå
+				//å¤„äºæ˜¾ç¤ºçŠ¶æ€ä½†æ²¡æ¿€æ´» æ¿€æ´»çª—ä½“
 				ptui.util.focusWindows(window);
 			}
 		}
@@ -77,7 +77,7 @@ ptui.taskBar=new function(){
 }
 
 /**
-*ÈÎÎñ
+*ä»»åŠ¡
 */
 function Task(json){
 	var obj=eval(json);

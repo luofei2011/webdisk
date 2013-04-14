@@ -1,11 +1,11 @@
 /**
-*桌面
+*妗岄潰
 */
 ptui.desktop=new function(){
-	//桌面快捷方式数组
+	//妗岄潰蹇嵎鏂瑰紡鏁扮粍
 	this.links=new Array();
-	this.addLink=function(link){
-		this.links[this.links.length]=link;
+	this.addLink = function(link){
+		this.links[this.links.length] = link;
 		$("#"+ptuisetting['desktop']).append(link.toString());
 	}
 	this.addLinks=function(links){
@@ -13,7 +13,7 @@ ptui.desktop=new function(){
 			this.addLink(links[i]);
 		}
 	}
-	//点击快捷方式
+	//鐐瑰嚮蹇嵎鏂瑰紡
 	this.linkClick=function(obj){
 		var link=obj;
 		var task=new Task({name:link.name,id:link.id,icon:link.icon});
@@ -22,7 +22,7 @@ ptui.desktop=new function(){
 	}
 }
 /**
-*桌面快捷方式
+*妗岄潰蹇嵎鏂瑰紡
 */
 function Link(json){
 	this.id=json.id;
@@ -35,7 +35,7 @@ function Link(json){
 	
 	this.toString=function(){
 		var jtmp=ptui.util.toJSON(this);
-		var html="<div class=\"link\"  id='"+this.id+"' objJson=\""+jtmp+"\" onclick=\"ptui.desktop.linkClick("+jtmp+")\" style=\"left:"+this.left+"px;top:"+this.top+"px;\"><img width=\"70\" height=\"70\" src=\""+this.icon+"\"/></div>";
+		var html="<div class=\"link\"  id='"+this.id+"' objJson=\""+jtmp+"\" onclick=\"ptui.desktop.linkClick("+jtmp+")\" onMouseDown=\"f_mdown(this)\" onMouseMove=\"f_move(this)\" style=\"left:"+this.left+"px;top:"+this.top+"px;\"><img width=\"70\" height=\"70\" src=\""+this.icon+"\"/></div>";
 		return html;
 	}
 }

@@ -1,10 +1,10 @@
 ptui.window=new function(){
 	this.openWindow=function(obj){
 		
-		//零时加入一个DIV
+		//闆舵椂鍔犲叆涓�涓狣IV
 		var tmpDiv="<div id='window_"+obj.id+"' style='display:none;'></div>";
 		$("#"+ptuisetting['windows']).append(tmpDiv);
-		//调用Aero
+		//璋冪敤Aero
 		$('#window_'+obj.id).AeroWindow({
               WindowTitle:          obj.name,
 			  WindowPositionTop:    100,
@@ -15,11 +15,11 @@ ptui.window=new function(){
 			  WindowUrl:			obj.url,
 			  WindowIcon:			obj.icon,
 			  close:function(){
-				//从任务栏移除
+				//浠庝换鍔℃爮绉婚櫎
 				ptui.taskBar.deleteTask(obj.id);
 			  },
 			  min:function(){
-				//隐藏任务
+				//闅愯棌浠诲姟
 				$("#window_"+obj.id).hide(200);
 			  }
           });

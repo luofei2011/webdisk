@@ -1,8 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
+	<meta charset=utf-8>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
 		<title>Demo TaskBar</title>
+		<link rel="icon" href="favicon.ico" mce_href="favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="favicon.ico" mce_href="favicon.ico" type="image/x-icon">
 		<link href="plug/AeroWindow V3.5/css/jquery-ui.css" rel="stylesheet" type="text/css"/> 
 		<link href="css/luofei.css" rel="stylesheet" type="text/css">   
 		<link href="css/right-hand-button.css" rel="stylesheet" type="text/css">
@@ -57,7 +59,7 @@
 	    		}
 	    		else
 	    		{ yPos = e.clientY; }
-				/*´¦Àí±ß½çÎÊÌâ*/
+				/*å¤„ç†è¾¹ç•Œé—®é¢˜*/
 				if((yPos >= 0) && (yPos < 20)) {
 					contextMenuObj.style.left = xPos + 'px';
 	  				contextMenuObj.style.top = 0 + 'px';
@@ -156,116 +158,84 @@
 	</head>
 
 <body style="padding:0;margin:0;">
-	<!--×ÀÃæ-->
+	<!--æ¡Œé¢-->
 	<div class="desktop" id="desktop">
-		<!--ÈÎÎñID:<input id="tid"/>
-		ÈÎÎñÃû³Æ:<input id="tname"/>
-		<input type="button" value="´´½¨ÈÎÎñ" onclick="create()"/><br/>
-		ÈÎÎñID:<input id="did"/>
-		<input type="button" value="É¾³ıÈÎÎñ" onclick="del()"/>
-		<br>
-		¿ì½İÍ¼±ê£º<input id="kico"/> left<input id="klef"/> top<input id="ktop"/><input type="button" value="´´½¨" onclick="createlink()"/><br/>-->
 	</div>
 	<div class="desktop" id="windows">
-		
 	</div>
-	<!--ÈÎÎñÀ¸-->
-	<div class="window_Task_bak">
-		<div></div>
-	</div>
-	<div class="window_Task">
-		<div class="start">
-			<a href="#" id="start">
-				<img width="39" height="39" src="images/start.png"/></a>
-		</div>
-		<div id="desktop1"></div>
-		<div class="tasks" id="taskBar">
-			
-		</div>
-		<div class="showdesk"></div>
-	</div>
-	<div id="menuwin">
-        <div id="startmenu"></div>
-        <ul id="programs">
-            <li><a href="#">
-                <img src="images/images/ie.png" />Internet Explorer</a></li>
-            <li><a href="#">
-                <img src="images/images/mc.png" />Microsoft Media Center</a></li>
-            <li>
-                <div id="leftspliter"></div>
-            </li>
-            <li><a href="#">
-                <img src="images/images/word.png" />Microsoft Word 2010</a></li>
-            <li><a href="#">
-                <img src="images/images/excel.png" />Microsoft Excel 2010</a></li>
-            <li><a href="#">
-                <img src="images/images/powerpoint.png" />Microsoft PowerPoint 2010</a></li>
-            <li><a href="#">
-                <img src="images/images/access.png" />Microsoft Access 2010</a></li>
-            <li><a href="#">
-                <img src="images/images/update.png" />Windows Update</a></li>
-            <li>
-                <div id="leftspliter"></div>
-            </li>
-            <li><a href="#">
-                <img src="images/images/narrow.png" />All Programs</a></li>
-            <li id="search">
-				<div id="search-l"></div>
-                <input type="text" placeholder="Search programs and files" checked="checked">
-			</li>
-        </ul>
-        <ul id="links">
-            <li class="icon">
-                <img src="images/images/user.png" /></li>
-            <li><a href="#"><span>Documents</span></a></li>
-            <li><a href="#"><span>Pictures</span></a></li>
-            <li><a href="#"><span>Music</span></a></li>
-            <li>
-                <div id="rightspliter"></div>
-            </li>
-            <li><a href="#"><span>Games</span></a></li>
-            <li><a href="#"><span>Computer</span></a></li>
-            <li>
-                <div id="rightspliter"></div>
-            </li>
-            <li><a href="#"><span>Control Panel</span></a></li>
-            <li><a href="#"><span>Devices and Printers</span></a></li>
-            <li><a href="#"><span>Default Programs</span></a></li>
-        </ul>
-    </div>
+	<!--ä»»åŠ¡æ -->
 	<div id="desktop"></div>
 	<ul id="contextMenu">
-		<li><a url="javascript:history.back();">ºóÍË</a></li>
-		<li><a url="javascript:history.forward();">Ç°½ø</a></li>
-		<li><a href="#" onclick="reLoad();">Ë¢ĞÂ</a></li>
-		<li><a href="#" onclick="addTask();">Ìí¼ÓÈÎÎñ</a></li>
-		<li><a href="#" onclick="deleteT();">É¾³ıÈÎÎñ</a></li>
-		<li><a href="#" onclick="change_bg();">¸ü»»×ÀÃæ±³¾°</a></li>
-		<li><a href="#" onclick="displayDesktop();">ÏÔÊ¾×ÀÃæ</a></li>
-		<li><a href="#" onclick="manageTask();">ÈÎÎñ¹ÜÀíÆ÷</a></li>
+		<li><a url="javascript:history.back();">åé€€</a></li>
+		<li><a url="javascript:history.forward();">å‰è¿›</a></li>
+		<li><a href="#" onclick="reLoad();">åˆ·æ–°</a></li>
+		<li><a href="#" onclick="addTask();">æ·»åŠ ä»»åŠ¡</a></li>
+		<li><a href="#" onclick="deleteT();">åˆ é™¤ä»»åŠ¡</a></li>
+		<li><a href="#" onclick="change_bg();">æ›´æ¢æ¡Œé¢èƒŒæ™¯</a></li>
+		<li><a href="#" onclick="displayDesktop();">æ˜¾ç¤ºæ¡Œé¢</a></li>
+		<li><a href="#" onclick="manageTask();">ä»»åŠ¡ç®¡ç†å™¨</a></li>
 	</ul>
 	<script type="text/javascript">
 		initContextMenu();
 	</script>
-	Y:<input type="text" id="Y" size="4"><br>
-	X:<input type="text" id="X" size="4">
+	<div id="zuobiao" style="display:none">
+		Y:<input type="text" id="Y" size="4"><br>
+		X:<input type="text" id="X" size="4">
+	</div>
 	<div id="deleteTask">
-		<p id="tishi">ÇëÊäÈëÄãÒªÉ¾³ıµÄIDºÅ</p>
+		<p id="tishi">è¯·è¾“å…¥ä½ è¦åˆ é™¤çš„IDå·</p>
 		<input type="text" id="Did" name="Dname" size="10">
-		<input type="button" value="È·¶¨" onclick="deleteTask();" id="Dsubmit">
-		<input type="reset" value="È¡Ïû"  id="DgiveUp" onclick="DgiveUp();">
+		<input type="button" value="ç¡®å®š" onclick="deleteTask();" id="Dsubmit">
+		<input type="reset" value="å–æ¶ˆ"  id="DgiveUp" onclick="DgiveUp();">
 	</div>
 	<div id="createTask">
-		<p>ÈÎÎñID:<input type="text" size="10" id="ID" name="ID1" value="1000"><p>
-		<p>ÈÎÎñÃû³Æ:<input type="text" size="10" id="task_name" name="name"></p>
+		<p>ä»»åŠ¡ID:<input type="text" size="10" id="ID" name="ID1" value="1000"><p>
+		<p>ä»»åŠ¡åç§°:<input type="text" size="10" id="task_name" name="name"></p>
 		<p>Left:<input type="text" size="4" id="task_left" name="Left" value="300">Top:<input type="text" size="4" id="task_top" name="Top" value="30"></p>
-		<p>Í¼±ê:<input type="file" name="image" id="demo_input"></p>
+		<p>å›¾æ ‡:<input type="file" name="image" id="demo_input"></p>
 		<div id="demo_result"></div>
 		<div id="blank_area_left"></div>
-		<input type="button" value="È·ÈÏ" name="creatTask" id="task_submit" onclick="submit();"><input type="reset" value="È¡Ïû" name="giveUp" onclick="quXiao();" id="task_reset">
+		<input type="button" value="ç¡®è®¤" name="creatTask" id="task_submit" onclick="submit();"><input type="reset" value="å–æ¶ˆ" name="giveUp" onclick="quXiao();" id="task_reset">
 	</div>
 	<div id="task_mange">
-		
+	</div>
+	<!--ä»»åŠ¡æ -->
+	<div class="Qbanner">
+		<div class="QbannerContainer">
+			<div class="left">
+			</div>
+			<div class="center">
+			</div>
+			<div class="right">
+			</div>
+		</div>
+	</div>
+	<!--å›¾æ ‡æ˜¾ç¤º-->
+	<div class="quickDialbox">
+		<div class="appBox" id="appBox_0">
+			<div class="boxLogo" style="background-image: url('images/Qbanner/logo.png');"></div>
+			<div class="boxTitle">
+				<a>ç½‘å€å¯¼èˆª</a>
+			</div>
+		</div>
+		<div class="appBox" id="appBox_1">
+			<div class="boxLogo" style="background-image: url('images/Qbanner/logo_1.png');"></div>
+			<div class="boxTitle">
+				<a>å£çº¸</a>
+			</div>
+		</div>
+		<div class="appBox" id="appBox_2">
+			<div class="boxLogo" style="background-image: url('images/Qbanner/logo_2.png');"></div>
+			<div class="boxTitle">
+				<a>ä¹¦ç­¾</a>
+			</div>
+		</div>
+		<div class="appBox" id="appBox_3">
+			<div class="boxLogo" style="background-image: url('images/Qbanner/logo_3.png');"></div>
+			<div class="boxTitle">
+				<a>ä¹¦ç­¾</a>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
