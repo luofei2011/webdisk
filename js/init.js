@@ -6,7 +6,7 @@ var ptuisetting={
 $(document).ready(function(){
 	//加载桌面图标
 	var link=new Link({id:1,name:'百度',icon:'images\\icon\\1.png',left:20,top:20,url:'../youge/login.html'});
-	var link1=new Link({id:2,name:'谷歌',icon:'images\\icon\\2.png',left:20,top:110,url:'http://www.google.com'});
+	var link1=new Link({id:2,name:'media',icon:'images\\icon\\2.png',left:20,top:110,url:'plugin/media/media.html'});
 	var link2=new Link({id:3,name:'腾讯',icon:'images\\icon\\3.png',left:20,top:200,url:'http://www.tencent.com'});
 	var link3=new Link({id:4,name:'RussiaTetris',icon:'images\\icon\\4.png',left:20,top:290,url:'plugin/RussiaTetris.html'});
 	var link4=new Link({id:5,name:'文件上传',icon:'images\\icon\\5.png',left:20,top:380,url:'plugin/file.html'});

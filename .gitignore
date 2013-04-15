@@ -1,7 +1,13 @@
 #####开放模式####
-/images/
-/js/
-/php/
-/plug/
+images/
+js/
+php/
+plug/
+plugin/media/
 
 *.txt
+*.type
+*.ico
+
+##需要跟踪这些文件##
+!plugin/media/media.html
