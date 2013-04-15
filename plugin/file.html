@@ -4,37 +4,101 @@ var $ = function(selector) {
 };
 
 var handleFiles = function(files) {
+	//判断当前浏览器是否支持sendAsBinary方法
+	if(!XMLHttpRequest.prototype.sendAsBinary){
+		XMLHttpRequest.prototype.sendAsBinary = function(datastr) {
+			function byteValue(x) {
+			  return x.charCodeAt(0) & 0xff;
+			}
+			var ords = Array.prototype.map.call(datastr, byteValue);
+			var ui8a = new Uint8Array(ords);
+			this.send(ui8a.buffer);
+		}
+	}
+
+	//兼容性检测
+	if(typeof FileReader === 'undefined'){
+		alert('您的浏览器不支持FileReader!');
+		return;
+	}else{
+		var reader = new FileReader();
+	}
+
+	//图片显示区域
 	var preview = $("preview");
-	console.log(preview);
+
 	for (var i = 0; i < files.length; i++) {
 		var file = files[i];
-		if (!file.type.match(/image*/)) {
-			continue;
+		if (file.type.match(/image*/)) {
+			//continue;
+		
+			var img = document.createElement("img");
+			img.classList.add("obj");
+			img.file = file;
+			preview.appendChild(img);
+
+			reader.readAsDataURL(file);
+		}else{
+			//专门用来读取文件内容
+			reader.readAsBinaryString(file);
 		}
 		
-		var img = document.createElement("img");
-		img.classList.add("obj");
-		img.file = file;
-		preview.appendChild(img);
-		
-		var reader = new FileReader();
-		reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
-		reader.readAsDataURL(file);
-	}
+	   var xhr = new XMLHttpRequest();
+	   xhr.open('POST','file.php');
+	   console.log(file.type);
+	   xhr.overrideMimeType('\''+file.type+'; charset=x-user-defined-binary');
+
+	   //自调用函数 文件读取成功时触发
+	   reader.onload = function() { 
+		   var _this = this;
+		   if (file.type.match(/image*/)) {
+				img.src = this.result; 
+		   }
+		   else{
+				xhr.sendAsBinary(this.result);
+		   }
+	   }
+
+		//文件的上传功能
+	   xhr.upload.addEventListener("progress", function(e) {
+			if (e.lengthComputable) {
+				//var percentage = Math.round((e.loaded * 100) / e.total);
+				//var complete = (e.loaded / e.total * 100 | 0);
+				var timer = setInterval(function() {
+					if($('progress').value >= 100){
+						clearInterval(timer);
+						$('now').innerText = '上传成功!';
+					}else{
+						$('progress').value += 20;
+						$('now').innerText = $('progress').value+'%';
+					}
+				},1000);
+			}
+	   }, false);
+
+	   xhr.upload.addEventListener("load", function(e){
+			
+	   }, false);
+	   }
 }
 window.onload = function() {
 	dropbox = $("dropbox");
 	document.addEventListener("dragenter", function(e){
 		dropbox.style.borderColor = 'gray';
+
+		//当下一次上传来临的时候清除上一次留下的结果
+	    $('progress').value = 0;
+		$('now').innerText = '0%';
+		$('icon').src = '';
 	}, false);
-	document.addEventListener("dragleave", function(e){
+	document.addEventListener("dragover", function(e){
 		dropbox.style.borderColor = 'silver';
 	}, false);
 	dropbox.addEventListener("dragenter", function(e){
 		dropbox.style.borderColor = 'gray';
 		dropbox.style.backgroundColor = 'white';
 	}, false);
-	dropbox.addEventListener("dragleave", function(e){
+	dropbox.addEventListener("dragover", function(e){
 		dropbox.style.backgroundColor = 'transparent';
 	}, false);
 	dropbox.addEventListener("dragenter", function(e){
@@ -49,11 +113,60 @@ window.onload = function() {
 		e.stopPropagation();
 		e.preventDefault();
 		
-		handleFiles(e.dataTransfer.files);
+	    var files = e.dataTransfer.files;
+		handleFiles(files);
+
+		//根据不同的文件类型加载不同的图标
+		switch(files[0].type){
+			//文本类型
+			case 'text/plain':
+				$('icon').src =  "../images/Qbanner/sort/txt.png";
+				break;
+			//压缩包zip/gzip类型
+			case 'application/x-gzip':
+				$('icon').src =  "../images/Qbanner/sort/zip.png";
+				break;
+			//压缩包rar类型
+			case 'application/x-rar':
+				$('icon').src =  "../images/Qbanner/sort/zip.png";
+				break;
+			//doc类型
+			case 'application/msword':
+				$('icon').src =  "../images/Qbanner/sort/doc.png";
+				break;
+			//pdf类型
+			case 'application/pdf':
+				$('icon').src =  "../images/Qbanner/sort/pdf.png";
+				break;
+			default:
+				$('icon').src =  "../images/Qbanner/sort/default.png";
+				break;
+		}
 		
 		//submit.disabled = false;
 	}, false);
 };
 </script>
-<div name="image" id="dropbox" style="min-width:300px;min-height:100px;border:3px dashed silver;"></div>  
+<style type="text/css">
+.obj{
+	width: 100px;
+	height: 100px;
+}
+#dropbox{
+	width:180px;
+	height: 160px;
+	border: 3px dashed silver;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+img{
+	vertical-align: middle;
+}
+</style>
+<div name="image" id="dropbox">
+	<img src="" alt="" id="icon">
+</div>  
 <div id="preview"></div>
+<progress id="progress" max="100" min="0" value="0">0</progress>
+<span id="now" style="width:100px;height:16px; text-align:left;">0%</span>
