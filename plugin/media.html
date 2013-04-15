@@ -10,14 +10,14 @@
 <body>
 <script type="text/javascript">
 window.onload = function() {
+	$("video")[0].src = 'media/myvideo.mp4';
 	$('video').mediaelementplayer({
-		alwaysShowControls: true,
+		alwaysShowControls: false,
 		videoVolume: 'horizontal',
 		features: ['playpause','progress','volume','fullscreen']
 	});
 };
 </script>
-    <video id="player1" src="media/myvideo.mp4" width="320" height="240"></video><br />
-	Time: <span id="current-time"></span>
+    <video id="player1" src="" width="320" height="240"></video><br />
 </body>
 </html>
