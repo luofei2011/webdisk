@@ -44,7 +44,7 @@ var handleFiles = function(files) {
 		}
 		
 	   var xhr = new XMLHttpRequest();
-	   xhr.open('POST','file.php');
+	   xhr.open('POST','test.php');
 	   console.log(file.type);
 	   xhr.overrideMimeType('\''+file.type+'; charset=x-user-defined-binary');
 
@@ -80,6 +80,68 @@ var handleFiles = function(files) {
 			
 	   }, false);
 	   }
+};
+var fileUpload = function(fileList) {
+        if(fileList.length == 0){
+            return;
+        }
+        //检测文件是不是图片
+        //if(fileList[0].type.indexOf('image') === -1){
+            //$('.dashboard_target_box').removeClass('over');
+            //return;
+            //var preview = document.getElementById('preview');
+            //var img = document.createElement('img');
+            //img.src = 
+        //}
+        
+        if(typeof FileReader === 'undefined'){
+            alert('您的浏览器不支持FileReader!');
+            return;
+        }else{
+            var reader = new FileReader();
+        }
+
+        //图片显示区域
+        var preview = $("preview");
+
+        // 图片类型
+        if (fileList[0].type.indexOf('image') != -1) {
+        
+            var img = document.createElement("img");
+            img.classList.add("obj");
+            preview.appendChild(img);
+
+            reader.readAsDataURL(fileList[0]);
+        }
+		
+	   //自调用函数 文件读取成功时触发
+	   reader.onload = function() { 
+		   var _this = this;
+		   img.src = this.result; 
+	   }
+        //var img = window.webkitURL.createObjectURL(fileList[0]);
+        //拖拉图片到浏览器，可以实现预览功能
+        
+        xhr = new XMLHttpRequest();
+        xhr.open("post", "test.php", true);
+        xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        
+        var fd = new FormData();
+        fd.append('ff', fileList[0]);
+
+        var progressBar = document.getElementById('progress');
+        var nowVlaue = document.getElementById('now');
+        xhr.upload.onprogress = function(e) {
+            if ( e.lengthComputable ) {
+                //console.log(e.loaded);
+                //console.log(e.total);
+                progressBar.value = ( e.loaded / e.total ) * 100;
+                //progressBar.innerText = progressBar.value;
+                nowVlaue.innerText = progress.value + '%';
+            }
+        };
+        
+        xhr.send(fd);
 }
 window.onload = function() {
 	dropbox = $("dropbox");
@@ -114,7 +176,8 @@ window.onload = function() {
 		e.preventDefault();
 		
 	    var files = e.dataTransfer.files;
-		handleFiles(files);
+		//handleFiles(files);
+        fileUpload(files);
 
 		//根据不同的文件类型加载不同的图标
 		switch(files[0].type){
@@ -167,10 +230,14 @@ img{
 	width: 100px;
 	height: 100px;
 }
+#progress{
+	width: 180px;
+}
 </style>
 <div name="image" id="dropbox">
 	<img src="" alt="" id="icon">
 </div>  
-<progress id="progress" max="100" min="0" value="0">0</progress>
+<!--progress id="progress" max="100" min="0" value="0">0</progress-->
+<meter id="progress" min="0" max="100" value="0">0</meter>
 <span id="now" style="width:100px;height:16px; text-align:left;">0%</span>
 <div id="preview"></div>

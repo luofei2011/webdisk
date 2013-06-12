@@ -1,0 +1,173 @@
+body{
+	font-family:Arial,Verdana;
+	background-color:#CCCCFF;
+	font-size: 16px;
+}
+
+.login-in,.register-in{
+	float:right;
+	margin:20px 150px 20px 0px;
+}
+
+#login-in,#register-in{
+	display: block;
+	width:110px;
+	height:48px;
+	line-height: 48px;
+	text-align: center;
+	text-decoration:none;
+	background:url(../images/button2.png);
+	background-position:0px 0px;
+	font-family:"Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+	font-size:20px;
+	font-color:#444;
+	cursor: pointer;
+}
+
+#logo{
+	height: 300px;
+}
+	
+#register,#login,.PM_main,.changePassword{
+	position:relative;
+	left:50%;
+	width:288px
+}
+
+.PM_main{
+	background-color:#DDDDDD;
+	border-radius:5px;
+	padding:20px;
+}
+
+input{
+	margin:5px;
+	border-radius:2px;
+}
+
+#register-email,#register-pwd,#pwd-again,#login-email,#login-pwd,.check_code,#CP-pwd{
+	width:288px;
+	height:52px;
+	margin-bottom:5px;
+	margin-top:3px;
+	position:relative;
+	margin-right:5px;
+	background:url(../images/button.png);
+	background-repeat:repeat-y;
+	background-position:-280px 0px;
+}
+	
+#register_label,#login_label,#CP_label{
+	position: absolute;
+	height:50px;
+	width:240px;
+	left:32px;
+	top:0px;
+	margin:0px 10px;
+	line-height: 52px;
+	color:#ABACAD;
+	font-size: 16px;
+	white-space: nowrap;
+	overflow:hidden;
+	z-index:10;
+}
+	
+.register-icon,.register-pwd,.register-pwd-again,.login-icon,.login-pwd,.checkcode,.CP-pwd,.CP-pwd-again{
+	display: block;
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin: 18px 0px 0px 15px;
+	background: url(../images/button.png) 0px 0px  no-repeat/*no-repeat fixed 5px 155px*/;
+}
+
+.register-icon,.login-icon{
+	background-position:0px -150px;
+}
+
+.register-pwd,.register-pwd-again,.login-pwd,.CP-pwd,.CP-pwd-again{
+	background-position:0px -250px;
+}
+	
+.checkcode{
+	background-position:0px -350px;
+}	
+	
+#Username,#Pwd1,#Pwd2,#Id,#Pwd,#in_check_code,#check_code{
+	width:234px;
+	padding:10px;
+	margin:0px;
+	height:29px;
+	top:1px;
+	line-height:32px;
+	outline:none;
+	border:0px;
+	font-family:"Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+	font-size:16px;
+	position: absolute;
+	color:#8F8F8F;
+	z-index:20;
+	border-radius:5px;
+}
+
+.register_id,.login_id{
+	width:140px;
+}
+
+#register_id,#login_id{
+	width:100px;
+	height:40px;
+	margin:10px 50px 10px 0px;
+	padding:0px;
+	font-family:"Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+	font-size:16px;
+	font-color:#9999FF;
+	background:url(../images/button1.png);
+	cursor:pointer;
+	border-radius:10px;
+}
+
+#PM_submit,#PM_reset,#CP_submit,#CP_reset{
+	padding:0px;
+	width:50px;
+	height:30px;
+	font-family:"Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+	font-size:16px;
+	font-color:#9999FF;
+	border-radius:4px;
+	cursor:pointer;
+	margin:7px 20px 0px 20px;
+}
+
+.check_code{
+	height:52px;
+}
+
+#in_check_code{
+	width:97px;
+	margin:0px;
+}
+
+#check_code{
+	background:repeating-linear-gradient(#f00,#ff0 10%,#f00 15%);
+	border-left:1px solid;
+	width:80px;
+	margin:0px;
+	position:relative;
+	float:right;
+	letter-spacing:3px;
+	font-weight:bolder;
+	font-family:"Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
+	font-family:Arial;
+	font-style:italic;
+	border-top-left-radius:0px;
+	border-bottom-left-radius:0px;
+}
+
+.PM_R{
+	margin-left:32px;
+}
+
+.PM_M{
+	margin:0px 8px;
+}

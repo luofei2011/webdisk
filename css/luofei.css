@@ -324,11 +324,19 @@ body
 {
 	float:right;
 }
-.Qbanner{
+.Qbanner, .Qbanner-copy{
 	width: 100%;
 	position: fixed;
 	bottom: 0;
 	height: 48px;
+}
+.Qbanner {
+    display: none;
+    z-index: 2;
+}
+.Qbanner-copy {
+    z-index: 1;
+    height: 80px;
 }
 .QbannerContainer{
 	visibility: visible;
@@ -360,6 +368,8 @@ body
 	position:fixed;
 	height:48px;
 	width:100%;
+    display: none;
+    z-index: 9;
 }
 .appBox{
 	display: block;

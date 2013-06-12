@@ -1,0 +1,63 @@
+.obj{
+	width: 100px;
+	height: 100px;
+}
+#dropbox{
+	width:180px;
+	height: 160px;
+	border: 3px dashed silver;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+img{
+	vertical-align: middle;
+}
+#preview{
+	width: 100px;
+	height: 100px;
+}
+#progress{
+	width: 180px;
+}
+.wrapper {
+    width: 800px;
+    margin: 0 auto;
+}
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: none;
+}
+#dir ul, #touch ul {
+    height: 310px;
+}
+li {
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+}
+.file, .file_item {
+    width: 100px;
+    margin: 0;
+    padding: 0;
+    height: 100px;
+    background: url(../../images/149/BlankOn_Icons_013.png) no-repeat;
+    cursor: pointer;
+}
+#touch {
+    display: none;
+}
+.file_item {
+    background: url(../../images/149/BlankOn_Icons_052.png) no-repeat;
+}
+.content {
+    display: none;
+    width: 300px;
+    margin: 0 auto;
+}
+.name {
+    text-align: center;
+}
