@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>media</title>
-  <script type="text/javascript" src="media/jquery.js"></script>
-  <script src="media/mediaelement-and-player.min.js"></script>
   <link rel="stylesheet" href="media/mediaelementplayer.css" />
+  <script type="text/javascript" src="media/jquery.js"></script>
+  <script type="text/javascript" src="media/mediaelement-and-player.min.js"></script>
 </head>
 <body>
 <script type="text/javascript">
-window.onload = function() {
-	$("video")[0].src = 'file/test/vedio/video.mp4';
-	//$("video")[0].src = 'media/myvideo.mp4';
-	$('video').mediaelementplayer({
-		alwaysShowControls: false,
-		videoVolume: 'horizontal',
-		features: ['playpause','progress','volume','fullscreen']
-	});
-};
+    $(function() {
+        //$("video")[0].src = './media/myvideo.mp4';
+        //$(".src = 'media/myvideo.mp4';
+        //document.getElementById('player1').src = "media/myvideo.mp4";
+        $('#player1').mediaelementplayer({
+            alwaysShowControls: false,
+            videoVolume: 'horizontal',
+            features: ['playpause','progress','volume','fullscreen']
+        });
+    });
 </script>
-    <video id="player1" src="" width="320" height="240"></video><br />
+    <video id="player1" src="media/myvideo.mp4" width="320" height="240"></video><br />
 </body>
 </html>

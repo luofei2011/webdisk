@@ -13,10 +13,11 @@ if ( $_SESSION['username'] == '' ) {
     <title>文件管理</title>
     <link rel="stylesheet" href="./css/file.css" />
     <link rel="stylesheet" href="./css/contextMenu.css" />
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./media/jquery.js"></script>
     <script type="text/javascript" src="./js/jquery.contentMenu.js"></script>
     <script type="text/javascript" src="./js/jquery.ui.position.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
+    <script src="media/mediaelement-and-player.min.js"></script>
 </head>
 <body>
 <style type="text/css">
@@ -197,6 +198,10 @@ $(function() {
                     });
                     $(oTarget.parent()).empty();
                     break;
+                case "upload":
+                    var oTarget = $(this);
+                    console.log(oTarget);
+                    break;
                 default:
                     break;
             }
@@ -204,8 +209,13 @@ $(function() {
         items: {
             "edit": {name: "编辑", icon: "edit"},
             "quit": {name: "重命名", icon: "quit"},
-            "copy": {name: "删除", icon: "copy"}
+            "copy": {name: "删除", icon: "copy"},
+            "upload": {name: "下载", icon: "copy"}
         }
+    });
+
+    $('.file_item').click(function() {
+        window.open('file/' + <?php echo $_SESSION['username'];?> + fName +$(this).next().html());
     });
 
     // 当编辑一个文件保存后
@@ -263,10 +273,9 @@ $(function() {
         <img src="" alt="" />
     </div>
     <div class="video">
-        <script src="media/mediaelement-and-player.min.js"></script>
         <script type="text/javascript">
             $(function() {
-                $("video")[0].src = 'media/myvideo.mp4';
+                $("video")[0].src = './media/myvideo.mp4';
                     $('video').mediaelementplayer({
                         alwaysShowControls: false,
                         videoVolume: 'horizontal',

@@ -142,13 +142,13 @@ if ( $_SESSION['username'] == "" ) {
 							}
 						}
 					}
-					function getMouse () {
-					mouseX = event.x;
-					mouseY = event.y;
-					
-					X.value = mouseX;
-					Y.value = mouseY;
-				}
+					function getMouse (event) {
+                        mouseX = event.x;
+                        mouseY = event.y;
+                        
+                        X.value = mouseX;
+                        Y.value = mouseY;
+				    }
 					document.documentElement.onmousemove = getMouse;
 					contextMenuObj.style.display = 'none';		
 					document.documentElement.oncontextmenu = showContextMenu;
